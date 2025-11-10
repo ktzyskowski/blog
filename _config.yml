@@ -13,3 +13,5 @@ plugins:
   - jekyll-feed
   - jekyll-katex
   - jekyll-scholar
+include:
+  - assets
