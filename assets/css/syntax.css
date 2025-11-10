@@ -1,0 +1,200 @@
+/* CSS Variables for Light/Dark Mode */
+:root {
+  /* --syntax-bg: #f6f8fa; */
+  --syntax-bg: #ffffff;
+  --syntax-text: #24292f;
+  --syntax-keyword: #cf222e;
+  --syntax-builtin: #953800;
+  --syntax-tag: #116329;
+  --syntax-constant: #0550ae;
+  --syntax-string: #0a3069;
+  --syntax-function: #8250df;
+  --syntax-comment: #6e7781;
+  --syntax-error: #82071e;
+  --syntax-deletion-text: #82071e;
+  --syntax-deletion-bg: #ffebe9;
+  --syntax-insertion-text: #116329;
+  --syntax-insertion-bg: #dafbe1;
+}
+
+/* Dark mode via system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode) {
+    /* --syntax-bg: #0d1117; */
+    --syntax-bg: #000000;
+    --syntax-text: #c9d1d9;
+    --syntax-keyword: #ff7b72;
+    --syntax-builtin: #ffa657;
+    --syntax-tag: #7ee787;
+    --syntax-constant: #79c0ff;
+    --syntax-string: #a5d6ff;
+    --syntax-function: #d2a8ff;
+    --syntax-comment: #8b949e;
+    --syntax-error: #ffa198;
+    --syntax-deletion-text: #ffa198;
+    --syntax-deletion-bg: #490b14;
+    --syntax-insertion-text: #7ee787;
+    --syntax-insertion-bg: #04260f;
+  }
+}
+
+/* Dark mode via manual toggle */
+.dark-mode {
+  --syntax-bg: #0d1117;
+  --syntax-text: #c9d1d9;
+  --syntax-keyword: #ff7b72;
+  --syntax-builtin: #ffa657;
+  --syntax-tag: #7ee787;
+  --syntax-constant: #79c0ff;
+  --syntax-string: #a5d6ff;
+  --syntax-function: #d2a8ff;
+  --syntax-comment: #8b949e;
+  --syntax-error: #ffa198;
+  --syntax-deletion-text: #ffa198;
+  --syntax-deletion-bg: #490b14;
+  --syntax-insertion-text: #7ee787;
+  --syntax-insertion-bg: #04260f;
+}
+
+
+/* Syntax Highlighting */
+.highlight table td {
+  padding: 5px;
+}
+
+.highlight table pre {
+  margin: 0;
+}
+
+.highlight,
+.highlight .w {
+  color: var(--syntax-text);
+  background-color: var(--syntax-bg);
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt,
+.highlight .kv {
+  color: var(--syntax-keyword);
+}
+
+.highlight .gr {
+  color: var(--syntax-bg);
+}
+
+.highlight .gd {
+  color: var(--syntax-deletion-text);
+  background-color: var(--syntax-deletion-bg);
+}
+
+.highlight .nb,
+.highlight .nc,
+.highlight .no,
+.highlight .nn {
+  color: var(--syntax-builtin);
+}
+
+.highlight .sr,
+.highlight .na,
+.highlight .nt {
+  color: var(--syntax-tag);
+}
+
+.highlight .gi {
+  color: var(--syntax-insertion-text);
+  background-color: var(--syntax-insertion-bg);
+}
+
+.highlight .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.highlight .kc,
+.highlight .l,
+.highlight .ld,
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .il,
+.highlight .mo,
+.highlight .mx,
+.highlight .sb,
+.highlight .bp,
+.highlight .ne,
+.highlight .nl,
+.highlight .py,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi,
+.highlight .vm,
+.highlight .o,
+.highlight .ow {
+  color: var(--syntax-constant);
+}
+
+.highlight .gh,
+.highlight .gu {
+  color: var(--syntax-constant);
+  font-weight: bold;
+}
+
+.highlight .s,
+.highlight .sa,
+.highlight .sc,
+.highlight .dl,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1,
+.highlight .ss {
+  color: var(--syntax-string);
+}
+
+.highlight .nd,
+.highlight .nf,
+.highlight .fm {
+  color: var(--syntax-function);
+}
+
+.highlight .err {
+  color: var(--syntax-bg);
+  background-color: var(--syntax-error);
+}
+
+.highlight .c,
+.highlight .ch,
+.highlight .cd,
+.highlight .cm,
+.highlight .cp,
+.highlight .cpf,
+.highlight .c1,
+.highlight .cs,
+.highlight .gl,
+.highlight .gt {
+  color: var(--syntax-comment);
+}
+
+.highlight .ni,
+.highlight .si {
+  color: var(--syntax-text);
+}
+
+.highlight .ge {
+  color: var(--syntax-text);
+  font-style: italic;
+}
+
+.highlight .gs {
+  color: var(--syntax-text);
+  font-weight: bold;
+}

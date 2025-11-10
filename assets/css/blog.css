@@ -1,0 +1,373 @@
+/* CSS Variables for Light/Dark Mode */
+:root {
+    --bg-color: #ffffff;
+    --text-color: rgba(0, 0, 0, 0.8);
+    --text-muted: rgba(0, 0, 0, 0.6);
+    --text-light: rgba(0, 0, 0, 0.5);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-strong: rgba(0, 0, 0, 0.2);
+    --border-heavy: rgba(0, 0, 0, 0.7);
+    --link-color: rgba(0, 0, 0, 0.8);
+    --quote-color: #777;
+    --quote-border: #ddd;
+    --post-date-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Dark mode via system preference */
+@media (prefers-color-scheme: dark) {
+    :root:not(.light-mode) {
+        --bg-color: #1a1a1a;
+        --text-color: rgba(255, 255, 255, 0.87);
+        --text-muted: rgba(255, 255, 255, 0.6);
+        --text-light: rgba(255, 255, 255, 0.5);
+        --border-color: rgba(255, 255, 255, 0.1);
+        --border-strong: rgba(255, 255, 255, 0.2);
+        --border-heavy: rgba(255, 255, 255, 0.7);
+        --link-color: rgba(255, 255, 255, 0.87);
+        --quote-color: #999;
+        --quote-border: #444;
+        --post-date-color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Dark mode via manual toggle */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: rgba(255, 255, 255, 0.87);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --text-light: rgba(255, 255, 255, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.2);
+    --border-heavy: rgba(255, 255, 255, 0.7);
+    --link-color: rgba(255, 255, 255, 0.87);
+    --quote-color: #999;
+    --quote-border: #444;
+    --post-date-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Base Styles */
+html {
+    font-family: -apple-system, Helvetica, arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.5em;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    margin: 0;
+}
+
+body .content {
+    margin-bottom: 120px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: -apple-system, Helvetica, arial, sans-serif;
+}
+
+h1 {
+    line-height: 1.2em;
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Utility Classes */
+.clear {
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+.wrap {
+    max-width: 700px;
+    margin: 0 auto;
+
+    /* THIS SAVED MY LIFE! */
+    /* Add this line to prevent text highlights from 
+        spanning to browser edges (beyond central column) */
+    position: relative;
+}
+
+.mono {
+    font-family: monospace;
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--border-strong);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    background: var(--border-heavy);
+}
+
+/* Navigation */
+.nav {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 15px;
+    font-weight: normal;
+    transition: font-weight 0.1s;
+}
+
+.nav a:hover {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav ul li {
+    display: inline;
+}
+
+/* Front Matter */
+.front-matter {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    /* border-top: 1px solid var(--border-color); */
+}
+
+.front-matter h4 {
+    font-family: -apple-system, Helvetica, arial, sans-serif;
+    display: block;
+}
+
+.front-matter .bylines {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.front-matter .bylines .byline h3,
+.front-matter .bylines .byline p {
+    margin: 0;
+    font-family: -apple-system, Helvetica, arial, sans-serif;
+}
+
+.front-matter .bylines .byline h3 {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.front-matter .bylines .byline p {
+    font-size: 10px;
+    line-height: 1.6em;
+}
+
+/* Article Content */
+.article {
+    font-size: 15px;
+    line-height: 1.6em;
+    color: var(--text-color);
+    margin: 0 auto;
+    padding: 1em;
+    max-width: 700px;
+}
+
+.article blockquote {
+    margin: 0;
+    padding: 0 1em;
+    color: var(--quote-color);
+    border-left: 0.25em solid var(--quote-border);
+}
+
+.article h2 {
+    font-size: 26px;
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 1rem;
+    padding-top: 1em;
+}
+
+.article ul {
+    padding: 0 15px;
+}
+
+.article hr {
+    border-bottom: none;
+    border-top: 1px solid var(--border-heavy);
+    margin: 33px auto;
+    width: 70px;
+}
+
+/* Figures and Captions */
+.article .figure {
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+    padding: 20px 0;
+}
+
+.article .figure .caption {
+    padding-top: 15px;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 1.2em;
+}
+
+.article .figure .caption-label {
+    font-weight: bold;
+}
+
+/* Code Blocks */
+.article div.highlight {
+    /* padding-left: 1em; */
+    /* padding-right: 1em; */
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+    font-size: 13px;
+    line-height: 1.3em;
+}
+
+.article .footnote {
+    line-height: 0;
+}
+
+/* Bibliography */
+#bibliography {
+    border-top: 1px solid var(--border-color);
+}
+
+#bibliography ol.bibliography {
+    padding-left: 15px;
+    padding-top: 30px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+/* Blog Listing */
+#blog {
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+#blog #intro {
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.4em;
+    margin-bottom: 40px;
+}
+
+#blog .quote {
+    margin-bottom: 30px;
+}
+
+#blog .quote p {
+    margin-bottom: 5px;
+}
+
+/* Post rows using Grid */
+#blog .post-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+#blog .post-date {
+    text-transform: uppercase;
+    color: var(--post-date-color);
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    text-align: right;
+}
+
+#blog .post-title {
+    font-weight: bold;
+    margin: 0;
+}
+
+#blog .post-title a {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#blog .post-title a:hover {
+    text-decoration: underline;
+}
+
+#blog .post-subtitle {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    line-height: 1.5em;
+}
+
+#blog .year {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+#blog #y2017.year,
+#blog #y2018.year {
+    margin-top: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 700px) {
+    body {
+        margin: 0 7px;
+    }
+
+    #blog .post-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    #blog .post-date {
+        text-align: left;
+    }
+
+    .front-matter .bylines {
+        flex-direction: column;
+    }
+}
